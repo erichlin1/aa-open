@@ -31,9 +31,9 @@ function doesKeyExist(obj, key) {
 
 };
 */
-// method #3 - checks if the key is a 'direct' property
+// method #3 - checks if the key is a 'direct' property, otherwise false (even if its inherited property)
 function doesKeyExist(obj, key) {
-    return Object.hasOwn(obj, key);
+    return obj.hasOwnProperty(key);
 
 };
 
