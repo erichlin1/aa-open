@@ -23,15 +23,8 @@ console.log(test); // ['LAIKA', 'BELKA']
 
 
 let myForEach = function(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        let currVal = array[i];
-        callback(currVal, index, arrayy);
-    };
+    callback(element, index, array);
 };
-
-
-
-
 
 
 
