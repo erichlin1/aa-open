@@ -23,12 +23,37 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
 console.log(result3);   // true
 *******************************************************************************/
 
-let mySome = function() {
-
+/* method #1 - forEach method - not very efficient as forEach executes for each value regardless if its true.
+let mySome = function(array, callback) {
+    let ans;
+    array.forEach(function(ele) {
+        const result = callback(ele);
+        if (result) {
+            ans = true;
+        };
+    })
+    return ans;
 };
+*/
 
+/* method #2 - iterator, terminates right when a value returns true
+let mySome = function(array, callback) {
+    for (let i = 0; i < array.length; i += 1) {
+        let el = array[i];
+        if (callback(el, i)) {
+            return true;
+        };
+    };
+    return false;
+};
+*/
 
-
+// method #3
+const mySome = function(array,callback) {
+    array.some(function(el) {
+        return callback(el);
+    });
+};
 
 
 
