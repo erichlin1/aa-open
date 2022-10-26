@@ -42,9 +42,33 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 - How many times are you calling each callback function?
 *******************************************************************************/
 
-let selectiveMap = function() {
 
+/* method #1
+let selectiveMap = function(array, callback1, callback2) {
+    const ans = [];
+    array.forEach(function(el) {
+        // if callback1 is true for the current element then
+        if (callback1(el) == true) {
+            // replaced the current element with the results of callback2
+            ans.push(callback2(el));
+        } else {
+            ans.push(el);
+        }
+    });
+    return ans;
 };
+*/
+
+// method #2
+let selectiveMap = function(array, callback1, callback2) {
+    const ans = [];
+    array.forEach(function(el) {
+        const ansResult = callback1(el) ? callback2(el) : el;
+        ans.push(ansResult);
+    });
+    return ans;
+};
+
 
 
 

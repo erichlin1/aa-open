@@ -19,14 +19,33 @@ let result2 = myFilter(['choose', 'big', 'words', 'only'], function (s) {
 console.log(result2);      // ['choose', 'words', 'only']
 *******************************************************************************/
 
-let myFilter = function() {
 
+/* method #1 - iterator
+let myFilter = function(array, callback) {
+    let ans = [];
+    for (let el of array) {
+        if (callback(el) === true) {
+            ans.push(el);
+        };
+    };
+    return ans;
+};
+*/
+// method #2 - high order funciton
+let myFilter = function(array, callback) {
+    let ans = [];
+    array.forEach(function(element) {
+        if (callback(element) == true) {
+            ans.push(element);
+        };
+    });
+    return ans;
 };
 
 
 
 
 
-
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+
 module.exports = myFilter;
