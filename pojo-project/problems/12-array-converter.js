@@ -11,8 +11,19 @@ console.log(arrayConverter(["mango", "pineapple"])); // => {mango: 1, pineapple:
 console.log(arrayConverter(["apple", "banana", "potato", "banana"])); // => {apple: 1, banana: 2, potato: 1}
 ***********************************************************************/
 
+
+// method #1 - iterator
 function arrayConverter(array) {
-  // Your code here
+     let count = {};
+     for (let el of array) {
+             if (count[el] == undefined) {
+     
+                     count[el] = 1;
+             } else {
+                     count[el] += 1;
+             };
+     };
+     return count;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

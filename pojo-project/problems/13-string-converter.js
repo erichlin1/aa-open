@@ -12,8 +12,18 @@ console.log(stringConverter("raccoon")); // => {r: 1, a: 1, c: 2, o: 2, n: 1}
 ***********************************************************************/
 
 function stringConverter(string) {
-  // Your code here
+    let count = {};
+    let strArr = string.split('');
+    strArr.forEach(function(element) {
+        if (count[element] == undefined) {
+            count[element] = 1;  
+        } else {
+            count[element] += 1;
+        };
+    });
+    return count;
 }
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 module.exports = stringConverter;
