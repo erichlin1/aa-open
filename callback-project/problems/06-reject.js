@@ -22,12 +22,14 @@ console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth'
 *******************************************************************************/
 
 let reject = function(array, callback) {
-
+    let ans = [];
+    array.forEach(function(el) {
+        if (callback(el) == false) {
+            ans.push(el);
+        };
+    });
+    return ans;
 };
-
-
-
-
 
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
