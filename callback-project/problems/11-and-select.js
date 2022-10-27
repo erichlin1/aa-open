@@ -28,12 +28,47 @@ console.log(andSelect(['ants', 'APPLES', 'ART', 'BACON', 'arm'], isUpperCase,  s
 
 *******************************************************************************/
 
-let andSelect = function() {
+/* method #1
+const andSelect = function(array, callback1, callback2) {
+    let result = [];
+    for (let el of array) {
+        let result1 = callback1(el);
+        let result2 = callback2(el);
+        if (result1 && result2) {
+            result.push(el);
+        };
+    };
+    return result;
 
 };
+*/
 
+// method #2 - forEach
+/*
+const andSelect = function(array, callback1, callback2) {
+    let result = [];
+    array.forEach(function(el) {
+        callback1(el) && callback2(el)  ? result.push(el) : false;
+    });
+    return result;
+};
+*/
+// method #3 - filter
+/*
+const andSelect = function(array, callback1, callback2) {
+    const result = array.filter(function(el) {
+        return callback1(el) && callback2(el);
+    });
+    return result;
 
+};
+*/
 
+// method #4 - filter with arrow function 
+const andSelect = function(array, callback1, callback2) {
+    return array.filter(el => callback1(el) && callback2(el));
+
+};
 
 
 

@@ -27,11 +27,17 @@ console.log(result4); // true
 
 *******************************************************************************/
 
-let exactly = function() {
-
+//method #1 - Every (if every values returns true, then it's exactly 'number' values) 
+let exactly = function(array, number, callback) {
+    
 };
 
+// method #2 - some (if there is atleast 1 value that returns false then there isn't exactly 'number' elements )
+let exactly = function(array, number, callback) {
+    
+};
 
+// method #3
 
 
 
