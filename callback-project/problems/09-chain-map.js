@@ -29,9 +29,40 @@ console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
 
-let chainMap = function() {
+
+/* method #1 - classic for loop
+let chainMap = function(x, ...args) {
+    // gather all callbacks using rest parameter
+    let result = 0;
+    for (let i = 0; i < args.length; i += 1) {
+        const callback = args[i];
+        result += callback(x);
+    };
+    return result;
+};
+*/
+
+// method #2  - recursion with a base case
+const chainMap = function(x, ...args) {
+    let base = args.length;
+    const result = helper(base, x, args);
+    
+};
+const helper = function(base, args, x) {
+    let n = 0;
+    if (n == base) {
+        return result;
+    } else {
+        const callback = args[n];
+        let result = callback(result);
+        helper(n + 1,)
+       
+    }
 
 };
+
+
+
 
 
 

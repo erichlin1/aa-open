@@ -26,10 +26,37 @@ let result4 = count(['follow', 'the', 'yellow', 'brick', 'road'], function (str)
 console.log(result4); // 0
 *******************************************************************************/
 
-let count = function() {
+// method #1 - forEach method
+/*
+const count = function(array, callback) {
+    let trueCounts = 0
+    array.forEach(function(el) {
+        callback(el) ? trueCounts += 1: false;
+    });
+    return trueCounts;
+};
+*/
 
+// method #2 - filter method
+const count = function(array, callback) {
+    const trueCounts = array.filter(function(el) {
+        return callback(el) === true;
+    });
+    return trueCounts.length;
 };
 
+// method #3 - for..of
+/*
+const count = function(array, callback) {
+    let trueCount = 0;
+    for (let el of array) {
+        if (callback(el)) {
+            trueCount += 1;
+        };
+    };
+    return trueCount;
+};
+*/
 
 
 

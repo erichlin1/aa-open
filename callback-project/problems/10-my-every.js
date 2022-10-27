@@ -21,9 +21,18 @@ console.log(myEvery(['book', 'door'], hasO));           // true
 console.log(myEvery(['book', 'door', 'pen'], hasO));    // false
 *******************************************************************************/
 
-let myEvery = function() {
 
+// method #1 - (if)
+let myEvery = function(array, callback) {
+    let count = 0;
+    array.forEach(function(el) {
+        callback(el) ? count += 1 : false;
+    });
+    const result = count == array.length ? true : false;
+    return result;
 };
+
+// method #2 - some (if atleast one is false, then we know that not all results are true);
 
 
 
