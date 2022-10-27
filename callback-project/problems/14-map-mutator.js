@@ -18,11 +18,27 @@ mapMutator(arr2, function (el, i) {
 console.log(arr2); // [ 0, 9, 20 ]
 *******************************************************************************/
 
-let mapMutator = function() {
+/* method #1 - classic for loop
+let mapMutator = function(array, callback) {
+    for (let i = 0; i < array.length; i += 1) {
+        array[i] = callback(array[i], i);
+    };
 
+    return array;
 };
+*/
 
+/* method #2 - map (return a modified original array instead of the return aray from the map function)
+let mapMutator = function(array, callback) {
+    array.map((el,i) => array[i] = callback(el, i));
+    return array;
+};
+*/
 
+// Method #3 - forEach (forEach is more performant than map and still achieve the same result)
+let mapMutator = function(array, callback) {
+    return array.forEach((el, i) => array[i] = callback(el, i));
+};
 
 
 

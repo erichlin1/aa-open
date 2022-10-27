@@ -27,17 +27,54 @@ console.log(result4); // true
 
 *******************************************************************************/
 
-//method #1 - Every (if every values returns true, then it's exactly 'number' values) 
+/* method #1 - filter 
+
 let exactly = function(array, number, callback) {
-    
+    const result = array.filter(function(el) {
+        return callback(el);
+    });
+    return result.length == number;
 };
 
-// method #2 - some (if there is atleast 1 value that returns false then there isn't exactly 'number' elements )
+*/
+
+/* method #2 - map
 let exactly = function(array, number, callback) {
-    
+    let count = 0;
+    // replace each value that returns true by test function
+    const result = array.map(function(el) {
+        return callback(el);
+    });
+    // could apply pattern of method #1 or use for..of
+    for (let bool of result) {
+        if (bool) {
+            count += 1;
+        };
+    };
+    return count == number;
+};
+*/
+
+/* method #3 - map, method chaining
+let exactly = function(array, number, callback) {
+    const result = array.map(function(el) {
+        return callback(el);
+    }).filter(function(el) {
+        return el;
+    });
+    return result.length == number;
+};
+*/
+
+// method #3 - map, method chaining and arrow function
+
+let exactly = function(array, number, callback) {
+    return array.map(el => callback(el)).filter(el => el).length == number;
 };
 
-// method #3
+
+
+
 
 
 
