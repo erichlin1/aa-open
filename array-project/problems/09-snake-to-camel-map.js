@@ -16,8 +16,24 @@ console.log(snakeToCamel('APp_ACADEMY_iS_cOol')); // 'AppAcademyIsCool'
 */
 
 function snakeToCamel(str) {
-    // Your code here
-}
+    // separates each word by '-' into an array
+    let tar = str.split('_');
+    // map each value to an new array with the 1st char capitalized 
+    const result = tar.map(el => {
+        // lower cased every char
+        const elLow = el.toLowerCase();
+        // upper cased first char
+        const firstChar = elLow[0].toUpperCase();
+        // last index is inclusive
+        const elSliced = elLow.slice(1);
+        // pascal cased
+        const pascalCased = `${firstChar}${elSliced}`;
+        // return a new string
+        return pascalCased;
+    });
+    // return a string with each value joined without a delimiter
+    return result.join('');
+} 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
@@ -25,4 +41,4 @@ try {
     module.exports = snakeToCamel;
 } catch (e) {
     module.exports = null;
-}
+}
