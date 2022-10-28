@@ -38,20 +38,16 @@ let hasThreeVowels = function(string) {
 */
 
 
-/* method #2
-let hasThreeVowels = function(string) {
-
+// method #2
+const hasThreeVowels = function(string) {
+    const vowelCounter = {};
+    const stringLowList = string.toLowerCase().split('');
+    // filter out the vowels of the string
+    const filtered = stringLowList.filter(el => 'aeiou'.includes(el));
+    filtered.forEach(el => vowelCounter[el] = undefined);
+    // if there are 3 unique vowels, then 
+    return Object.keys(vowelCounter).length >= 3;
 };
-*/
-
-
-// method #3
-
-
-// method #4
-
-
-
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
