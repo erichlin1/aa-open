@@ -9,10 +9,26 @@ console.log(minValueCallback([64, 25, 49, 9, 100]));             // 9
 console.log(minValueCallback([64, 25, 49, 9, 100], Math.sqrt));  // 3
 
 *******************************************************************************/
-
-let minValueCallback = function() {
-
+/* method #1
+let minValueCallback = function(array, callback) {
+    if (callback == undefined) {
+        return Math.min(...array);
+    } else {
+        const result = callback(Math.min(...array));
+        return result;
+    };
 };
+*/
+
+// method #2 - ternary operator
+let minValueCallback = function(array, callback) {
+    const min = Math.min(...array);
+    return callback == undefined ? min : callback(min);
+};
+
+
+
+
 
 
 
