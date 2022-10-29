@@ -26,7 +26,10 @@ console.log(twoDimensionalProduct(arr2)); // 88
 */
 
 let twoDimensionalProduct = function(arr) {
-    // Your code here
+    const flatten = arr.flat(2);
+    const result = flatten.reduce((acc, prev) => acc *= prev, 1);
+    return result;
+
 };
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
