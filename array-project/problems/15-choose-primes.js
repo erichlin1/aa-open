@@ -18,13 +18,32 @@ console.log(choosePrimes([5, 6, 4, 11, 2017])); // [ 5, 11, 2017 ]
 
 */
 
-let isPrime = function(num) {
-    // Your code here
+// Method #1
+
+const isPrime = function(num) {
+    let prime;
+    // creates an array with numbers ranging from 0 up to num, exclusive;
+    const coll =  Array.from({length: num}, (x, i) => i);
+    // indicates whether num is a prime (1 and 0 are trivial cases)
+    const result = coll.some(el => num % el == 0 && el != 1 && el != 0);
+    // since .some method returns true if num is not prime
+    return result ? false : true;
 }
 
-let choosePrimes = function(nums) {
-    // Your code here
+const choosePrimes = function(nums) {
+    const result = nums.filter(el => isPrime(el));
+    return result;
 }
+
+
+/* Method #2
+let choosePrimes = function(nums) {
+};
+*/
+
+
+
+
 
 // alternative solution using Array.filter
 // let choosePrimes = function(nums) {
