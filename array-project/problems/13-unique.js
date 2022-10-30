@@ -14,9 +14,39 @@ console.log(unique(['a', 'b', 'c', 'b'])); // ['a', 'b', 'c']
 
 */
 
+/* method #1 - forEach
 let unique = function(array) {
-    // Your code here
+    let isUnique = [];
+    array.forEach(el => {
+        if (!isUnique.includes(el)) {
+            isUnique.push(el);
+        };
+    });
+    return isUnique;    
+};;
+*/
+
+
+/* method #2 - obj
+let unique = function(array) {
+    let obj = {};
+    array.forEach(el => obj[el] = el);
+    let result = Object.values(obj);
+    return result;
 };
+*/
+
+// method #3 - filter
+let unique = function(array) {
+    const filtered = array.filter(el => {
+        if (filtered.includes(el)) {
+            return;
+        };
+    });
+    return filtered;
+};
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
@@ -24,4 +54,4 @@ try {
     module.exports = unique;
 } catch (e) {
     module.exports = null;
-}
+}

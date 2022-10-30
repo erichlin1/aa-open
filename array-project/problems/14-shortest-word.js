@@ -14,9 +14,26 @@ console.log(shortestWord('do what you enjoy'));         // 'do'
 
 */
 
+/* Method #1
+input: long string
+output: shortest string
+condition: if the length of two strings are equavalent, then return later word.
+
+*/
+// method #1
 let shortestWord = function(sentence) {
-  // Your code here
+  const tar = sentence.split(' ');
+  let shortest = tar[0];
+  tar.forEach(el => {
+      if (el.length <= shortest.length) {
+          shortest = el;
+      };
+  });
+  return shortest;
 };
+
+
+
 
 // Your code here
 
@@ -26,4 +43,4 @@ try {
   module.exports = shortestWord;
 } catch (e) {
   module.exports = null;
-}
+}
