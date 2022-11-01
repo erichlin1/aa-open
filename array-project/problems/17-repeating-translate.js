@@ -28,13 +28,32 @@ console.log(repeatingTranslate("her family flew to France"));   // "herer family
 
 */
 
+
+/*
+input: long string
+output: long string
+condtions:
+1. words less than 3 characters , unchanged
+2. words more than 3 characters:
+        a. If word ends with a vowel, repeat the word twice
+        b. If word ends with non-vowel, repeat all characters after last vowel, including the last vowel
+    
+
+
+*/
+
 let repeatingTranslate = function(sentence) {
-    // Your code here
+    let words = sentence.split(' ');
+    const result = words.map(word => translateWord(word));
+    return result.join(' ');
+
+
 };
 
 
 let translateWord = function(word) {
-    // Your code here
+    let vowels = 'aeiouAEIOU';
+    
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -43,4 +62,4 @@ try {
     module.exports = repeatingTranslate;
 } catch (e) {
     module.exports = null;
-}
+}
