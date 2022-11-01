@@ -18,7 +18,7 @@ console.log(choosePrimes([5, 6, 4, 11, 2017])); // [ 5, 11, 2017 ]
 
 */
 
-// Method #1
+/* Method #1 - Array object, .some and filter
 
 const isPrime = function(num) {
     let prime;
@@ -34,21 +34,44 @@ const choosePrimes = function(nums) {
     const result = nums.filter(el => isPrime(el));
     return result;
 }
+*/
 
 
-/* Method #2
-let choosePrimes = function(nums) {
+// Method #2 - classic for loop
+// From face value, this seems more time performant than Method #1 
+/*
+const isPrime = function(num) {
+    for (let i = 2; i < num; i += 1) {
+        if (num % i == 0) {
+            return false;
+        };
+    };
+    return true;
+
+};
+const choosePrimes = function(nums) {
+    return nums.filter(el => isPrime(el));
 };
 */
 
 
+// method #3 - syntax-wise, looks simple, but not very performant for very large numbers.
+
+const choosePrimes = function(nums) {
+    // filter out numbers that are prime
+    const result = nums.filter(num => {
+        // creates an numerical iterable, sliced from 2 to 4 to delete trivial cases: 0, 1
+        const iterable = [...Array(num).keys()].slice(2);
+        // tests whether there exist a divisor (if so, return false);
+        return iterable.some(el => num % el == 0) ? false : true;
+    });
+    return result;
+};
 
 
 
-// alternative solution using Array.filter
-// let choosePrimes = function(nums) {
-//     return nums.filter(isPrime);
-// }
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
