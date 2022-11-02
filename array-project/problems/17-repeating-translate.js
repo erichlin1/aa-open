@@ -42,18 +42,35 @@ condtions:
 
 */
 
-let repeatingTranslate = function(sentence) {
+const repeatingTranslate = function(sentence) {
     let words = sentence.split(' ');
-    const result = words.map(word => translateWord(word));
+    // creates a deep copy of the source array and replaces each element based on the condition
+    const result = words.map(word => word.length < 3 ? word : translateWord(word));
+    // returns the sentence with each word joined by an empty char
     return result.join(' ');
 
 
 };
 
+const translateWord = function(word) {
+    const vowels = 'aeiouAEIOU';
+    // converting to array of letters
+    const letters = word.split('');
+    // returns the last index of the vowel
+    const lastVowelIndex = letters.findLastIndex(char => vowels.includes(char));
+    // condition #1
+    const repeat = letters.concat(letters);
+    // condition #2
+    const partialRepeat = letters.slice(lastVowelIndex);
+    // last letter
+    const lastLetter = letters.length - 1;
+    // checks if the last letter is a vowel
+    const isLastVowel = letters[lastLetter] == lastVowelIndex;
+    // returns condition #1 if true else conditional #2
+    const result = isLastVowel ? repeat : letters.concat(partialRepeat);
+    // return to repeatingTranslate
+    return result.join('');
 
-let translateWord = function(word) {
-    let vowels = 'aeiouAEIOU';
-    
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

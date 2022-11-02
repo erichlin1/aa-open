@@ -38,12 +38,8 @@ let unique = function(array) {
 
 // method #3 - filter
 let unique = function(array) {
-    const filtered = array.filter(el => {
-        if (filtered.includes(el)) {
-            return;
-        };
-    });
-    return filtered;
+    const result = array.filter((num, index, array) => array.includes(num) ? false : true);
+    return result;
 };
 
 
