@@ -13,8 +13,8 @@ let p2 = {firstName: 'Charlie', lastName: 'Brown', age: 9};
 arrowGetFullName(p2); // => 'Charlie Brown'
 
 ***********************************************************************/
-
-// your code here!
+// destructured incoming parameters
+const arrowGetFullName = ({firstName, lastName}) => `${firstName} ${lastName}`;
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

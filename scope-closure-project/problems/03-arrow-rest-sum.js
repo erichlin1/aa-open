@@ -9,8 +9,8 @@ arrowRestSum(3,5,6); // => 14
 arrowRestSum(1, 2, 3, 4, 5, 6, 7, 8, 9); // => 14
 arrowRestSum(0); // => 0
 ***********************************************************************/
-
-// your code here!
+// gathers all incoming parameters into an array and invokes reduce to sum all elements with initial value as 0.
+const arrowRestSum = (...params) => params.reduce((acc,prev) => acc + prev, 0);
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
