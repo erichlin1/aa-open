@@ -18,6 +18,10 @@ funcTimer(5000, partyFunc); // in 5 seconds prints: "Party time!"
 
 ***********************************************************************/
 
+// executes onces parameter time is up
+const funcTimer = (time, func) => { setTimeout(func, time) };
+
+
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
