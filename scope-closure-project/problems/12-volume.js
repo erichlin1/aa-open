@@ -24,7 +24,36 @@ console.log(table2(75)); // STILL prints 6
 
 ***********************************************************************/
 
-const recVolume = (height) => (width) => (length) => {height * width * length};
+// method #1 
+const recVolume = function(param1) {
+  let vol = [param1];
+  let result;
+  return function(param2) {
+    vol.push(param2);
+    if (vol.length == 3) {
+      result = vol.reduce((acc, prev) => acc * prev, 1);
+      return result;
+    } else if (vol.length > 3) {
+      return result;
+    };
+  };
+};
+
+
+/* method #1
+const recVolume = function(param1) {
+    let vol = [param1];
+    let volLen = vol.length;
+    let result;
+    return param2 => {
+      let equal = volLen == 3;
+      let more = volLen > 3;
+      result = equal ? vol.reduce((a, b) => a * b, 1) : vol.push(param2);
+      return result;
+};
+*/
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

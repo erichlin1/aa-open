@@ -22,7 +22,8 @@ console.log(smoothie2("pineapple"));
 // prints "I'm having a smoothie with apples and bananas and berries and pineapple"
 ***********************************************************************/
 
-// your code here
+
+const smoothieMachine = (...arg1) => (...arg2) => 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
