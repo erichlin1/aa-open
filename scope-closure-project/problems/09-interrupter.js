@@ -16,7 +16,16 @@ console.log(rudePerson2("I love dogs")); // prints "I yo love yo dogs"
 
 ***********************************************************************/
 
-// your code here!
+const interrupter = function(param1) {
+  const tar = function(param2) {
+      let interruption = '';
+      const senArr = param2.split(' ');
+      const len = senArr.length - 1;
+      senArr.forEach((el, index) => interruption  += index < len ? `${el} ${param1} ` : `${el}`);
+      return interruption;
+  };
+  return tar; 
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

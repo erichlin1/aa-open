@@ -24,7 +24,7 @@ console.log(table2(75)); // STILL prints 6
 
 ***********************************************************************/
 
-// your code here
+const recVolume = (height) => (width) => (length) => {height * width * length};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

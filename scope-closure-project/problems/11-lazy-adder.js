@@ -22,8 +22,17 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   fat-arrow function
 ***********************************************************************/
 
-// your code here
-
+// lambda function solution #1 - three invokation before the sum is returned (currying)
+const lazyAdder = function(param1) {
+    return function(param2) {
+        return function(param3) {
+            return param1 + param2 + param3;
+        };
+    };
+}
+/* arrow function solution #2
+const lazyAdder = (param1) => (param2) => (param3) => (param1 + param2 + param3);
+*/
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {

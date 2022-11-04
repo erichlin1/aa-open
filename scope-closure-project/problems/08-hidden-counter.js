@@ -15,7 +15,15 @@ hidden2(); // returns 1
 
 ***********************************************************************/
 
-// your code here!
+// creating a closure on the inner function
+const hiddenCounter = function() {
+    let counter = 0;
+    const count = function() {
+        counter += 1;
+        return counter;
+    };
+    return count;
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
