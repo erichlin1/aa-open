@@ -25,7 +25,19 @@ Example 3:
 
 ***********************************************************************/
 
-// your code here
+const coinCollector = (numCoins) => {
+    let coinBucket = [];
+    const _coins = (coin) => {
+        coinBucket.push(coin);
+        const ans = coinBucket.length == numCoins;
+        // checks if the number of coins is in the coin bucket
+        // true: returns the coin bucket
+        // false: returns the function reference
+        const result = ans ? coinBucket : _coins;
+        return result;
+    };
+    return _coins;
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

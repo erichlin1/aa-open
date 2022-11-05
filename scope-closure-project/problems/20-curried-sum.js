@@ -42,7 +42,22 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   be useful
 ***********************************************************************/
 
-// your code here
+
+// Method #1
+const curriedSum = (numArgs) => {
+    let  tar = [];
+    // prefixing function with _ indicates privacy, however, technically it's public 
+    const _curriedSum = (num) => {
+        tar.push(num);
+        const ans = tar.length == numArgs;
+        const bo = ans ? tar.reduce((acc, prev) => acc += prev, 0) : _curriedSum;
+        return bo;
+    };
+    return _curriedSum;
+};
+
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
