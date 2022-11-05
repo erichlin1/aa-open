@@ -23,7 +23,12 @@ console.log(smoothie2("pineapple"));
 ***********************************************************************/
 
 
-const smoothieMachine = (...arg1) => (...arg2) => 
+const smoothieMachine = (...arg1) => (...arg2) => {
+  let result = `I'm having a smoothie with`;
+  arg1.length != 0 ? arg1.forEach(el => result + `${el}`) : arg2.forEach(el => result + `${el}`);
+  return result;
+
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
