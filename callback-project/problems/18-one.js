@@ -37,10 +37,15 @@ let result6 = one(['apple', 'dog', 'food', 'cat'], function(el, idx) {
 console.log(result6);   // true
 *******************************************************************************/
 
-let one = function() {
-
+const one = (array, callback) => {
+    let count = 0;
+    array.forEach((el, index) => {
+        if (callback(el, index)) {
+            count += 1;
+        }
+    });
+    return count == 1;
 };
-
 
 
 

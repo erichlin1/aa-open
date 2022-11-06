@@ -31,8 +31,17 @@ console.log(
 // [ 'art', 'app', 'buttery' ]
 *******************************************************************************/
 
-let xorSelect = function() {
-
+const xorSelect = (arr, callback1, callback2) => {
+  const result = arr.filter((el) => {
+      const firstAns = callback1(el);
+      const secondAns = callback2(el);
+      if (firstAns == true && secondAns == false) {
+          return el;
+      } else if (firstAns == false && secondAns == true) {
+          return el;
+      }
+  });s
+  return result;
 };
 
 
