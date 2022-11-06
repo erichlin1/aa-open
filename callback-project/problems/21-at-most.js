@@ -22,10 +22,40 @@ console.log(atMost(['boat', 'arc', 'cat', 'car', 'academy'], 1, startsWithA));  
 
 *******************************************************************************/
 
-let atMost = function() {
-
+/* method #1
+const atMost = (arr, max, cb) => {
+    // filters values that are true from the callback
+    const ans = arr.filter(el => cb(el));
+    // checks if there are less than or equal to the max;
+    const result = ans.length <= max;
+    return result;
 };
+*/
+/* method #2 - count approach
+const atMost = (arr, max, cb) => {
+    let count = 0;
+    arr.forEach(el => {
+        if (cb(el)) {
+            count += 1;
+        }
+    });
+    return count <= max;
+};
+*/
 
+// method #3 - classic loop
+const atMost = (arr, max, cb) => {
+    let count = 0;
+    for (let el of arr) {
+        if (cb(el)) {
+            count += 1;
+        }
+        if (count > max) {
+            return false;
+        }
+    };
+    return true;
+};
 
 
 

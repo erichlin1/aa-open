@@ -28,9 +28,18 @@ let result4 = none([4, -5, 7, -1], function(n) {
 console.log(result4);   // false
 *******************************************************************************/
 
-let none = function() {
+/* method #1 
+const none = (arr, cb) => {
+    // if there exist atleast one element that's true => not all elements in the array is false.
+    const ans = arr.some(el => cb(el));
+    // if not all elements in the array is false, return false
+    const result = ans ? false : true;
+    return result;
+}
+*/
 
-};
+// method #2 - one line expression
+const none = (arr, cb) => arr.some(el => cb(el)) ? false : true;
 
 
 
