@@ -34,8 +34,12 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   optional initial accumulator
 *******************************************************************************/
 
-let mySimpleReduce = function() {
-
+const mySimpleReduce = (arr, cb) => {
+    let acc = arr.shift();
+    arr.forEach(el => {
+        acc = cb(acc, el);
+    })
+    return acc;
 };
 
 

@@ -22,13 +22,7 @@ let result3 = firstIndex(['canine', 'feline', 'tree'], function (s) {
 console.log(result3); // -1
 *******************************************************************************/
 
-let firstIndex = function() {
-
-};
-
-
-
-
+const firstIndex = (arr, cb) => arr.findIndex(el => cb(el));
 
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
