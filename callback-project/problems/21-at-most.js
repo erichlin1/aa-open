@@ -31,6 +31,10 @@ const atMost = (arr, max, cb) => {
     return result;
 };
 */
+// method #1.1
+const atMost = (arr, max, cb) => arr.filter(el => cb(el)).length <= max;
+
+
 /* method #2 - count approach
 const atMost = (arr, max, cb) => {
     let count = 0;
@@ -43,7 +47,7 @@ const atMost = (arr, max, cb) => {
 };
 */
 
-// method #3 - classic loop
+/* method #3 - classic loop
 const atMost = (arr, max, cb) => {
     let count = 0;
     for (let el of arr) {
@@ -56,6 +60,7 @@ const atMost = (arr, max, cb) => {
     };
     return true;
 };
+*/
 
 
 
