@@ -62,6 +62,7 @@ const isEven = (param) => param % 2 == 0;
 const isOdd = (param, even) => !even(param);
 
 // returns  a deep array with each element of the original array altered by the 2 callbacks in alternating order
+// notice that callbacks are passed implicitly because of closure
 const alternatingMap = (arr, cb1, cb2) => {
     const result = arr.map((el, index) => {
         // return value of callback1

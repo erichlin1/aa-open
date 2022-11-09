@@ -23,11 +23,16 @@ setSecondsTimeout(function () {
 }, 1.4); // should print 'world' after 1400 milliseconds
 ***********************************************************************/
 
-function setSecondsTimeout(cb, delayInSeconds) {
-  // Your code here
-}
+
+const setSecondsTimeout = (cb, delaySeconds) => {
+  const mili = delaySeconds * 1000;
+  setTimeout(cb, mili);
+};
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
 try {
   module.exports = setSecondsTimeout;
 } catch {
