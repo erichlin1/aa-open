@@ -22,11 +22,13 @@ setSecondsTimeoutArgs(function(arg1, arg2) {
 }, 0.7, 'hello', 'world'); // should print 'hello-world' after 700ms
 ***********************************************************************/
 
-function setSecondsTimeoutArgs(cb, delayInSeconds, ...args) {
-  // Your code here
-}
+const setSecondsTimeoutArgs = (cb, delayInSeconds, ...args) => {
+    let mili = delayInSeconds * 1000;
+    setTimeout(cb, mili, ...args);
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
 try {
   module.exports = setSecondsTimeoutArgs;
 } catch {

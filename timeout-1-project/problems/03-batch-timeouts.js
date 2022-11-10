@@ -32,15 +32,15 @@ const timeoutObjs = batchTimeouts(tasks, delays);
 console.log(timeoutObjs); // [ Timeout {...},  Timeout {...}, Timeout {...} ]
 ***********************************************************************/
 
-/*iterative
+// iterative
 const batchTimeouts = (callbacks, delays) => {
     let timeoutObjects = [];
     callbacks.forEach((callback, index) => timeoutObjects.push(setTimeout(callback, delays[index])));
     return timeoutObjects;
 }
-*/
 
-// recursive
+
+/* recursive
 const batchTimeouts = (n, callbacks, delays) => {
     let timeout = [];
     // base case
@@ -64,14 +64,13 @@ const delays = [1000, 2000];
 let n = delays.length;
 
 console.log(batchTimeouts(n, callbacks, delays));
-
+*/
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
-/*
+
 try {
   module.exports = batchTimeouts;
 } catch {
   module.exports = null;
 }
-*/
