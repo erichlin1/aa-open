@@ -22,9 +22,12 @@ console.log(slowerGoodbye); // [Function]
 slowerGoodbye(); // prints 'bye' after 1750 ms
 ***********************************************************************/
 
-function postpone(cb, delay) {
-  // Your code here
-}
+const postpone = (cb, delay /* miliseconds */) => {
+    // when the returned function is invoked, a setTimetout is initated - once expires, it invokes the callback
+    return function() {
+        setTimeout(cb, delay);
+    };
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
