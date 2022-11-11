@@ -25,20 +25,29 @@ console.log(timeoutObject); // Timeout { ... }
 ***********************************************************************/
 
 function dynamicIntervalCount(cb, delay, amount) {
-    // if defined
+    let id;
+    let count = amount;
+    // if amount is truthy
     const tar = () => {
-      amount -= 1;
       if (amount) {
-        clearInterval(id)
+        if (!count) {
+          clearInterval(id);
+        };
+        cb();
+        count -= 1;
+      } else {
+        return timeoutObj;
       };
     };
-    // if undefined
-    let id = amount ? setInterval(tar, delay) : setTimeout(cb, delay);
-    return id;
-
+    id = setInterval(tar, delay);
 }
+// const cb = () => console.log('hi');
+// const delay = 1000;
+// const amount = 5;
 
+// dynamicIntervalCount(cb, delay,);
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
 try {
   module.exports = dynamicIntervalCount;
 } catch {

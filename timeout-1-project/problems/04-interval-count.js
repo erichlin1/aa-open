@@ -26,6 +26,7 @@ const intervalCount = (cb, delay, amount) => {
 const intervalCount = (cb, delay, amount) => {
   const inCb = () => {
     amount -= 1;
+    cb();
     console.log(amount);
     if (!amount) {
         clearInterval(id);
@@ -33,6 +34,10 @@ const intervalCount = (cb, delay, amount) => {
   };
   const id = setInterval(inCb, delay);
 };
+const cb = () => console.log('interval');
+const delay = 3000;
+const amount = 5;
+intervalCount(cb, delay, amount);
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
