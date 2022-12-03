@@ -29,7 +29,7 @@ const michelangelo = new Employee ('Michelangelo', 9000, 'Ninja', sensei);
 const raphael = new Employee('Raphael', 90000, 'Ninja', sensei);
 
 sensei.addEmployee(michelangelo);
-sensei.addEmployee(raphael );
+sensei.addEmployee(raphael);
 
 
 console.log(sensei);
