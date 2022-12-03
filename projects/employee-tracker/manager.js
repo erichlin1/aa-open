@@ -15,24 +15,58 @@ class Manager extends Employee {
         this.employees.push(employee);
     };
 
+    // adds all salaries
+    _totalSalary () {
+        let sum = 0;
+        const total = (list) => {
+            list.forEach((ele) => {
+                // checks if the current instance is of class Employee
+                if (ele instanceof Employee) {
+                    sum = sum + ele.salary;
+                    
+                } else {
+                    sum = sum + ele.salary;
+                    total(ele.employees);
+                };
+
+            });
+        };
+        total(this.employees);
+        return sum;
+    };
+
+
+
+    // calculates Manager's bonus
+    calculateBonus (multiplier) {
+        const bonus = this.salary * multiplier;
+        return bonus;
+    };
+
+
 };
 
 
 
 
-/* local test cases */
+// local test cases 
+
+/*
+const splinter = new Manager('Splinter', 2, 'Sensei');
+const leo = new Manager('Leonardo', 1, 'Ninja', splinter);
+const raph = new Manager('Raphael', 1, 'Ninja', leo);
+const mikey = new Employee('Michelangelo', 1, 'Grasshopper', raph);
+const donnie = new Employee('Donatello', 1, 'Grasshopper', raph);
+
+splinter.addEmployee(leo);
+leo.addEmployee(raph);
+raph.addEmployee(mikey, donnie);
 
 
-// employee and manager list
-const sensei  = new Manager('Sensei', 9000, 'Ninja', null, []);
-const michelangelo = new Employee ('Michelangelo', 9000, 'Ninja', sensei);
-const raphael = new Employee('Raphael', 90000, 'Ninja', sensei);
+splinter._totalSalary();
 
-sensei.addEmployee(michelangelo);
-sensei.addEmployee(raphael);
+*/
 
-
-console.log(sensei);
 
 
 // exporting Manager class
