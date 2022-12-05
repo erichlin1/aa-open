@@ -17,6 +17,7 @@ class World {
         for (let i = 0 ; i < roomList.length ; i++) {
 
             let roomData = roomList[i];
+            // assigning instance of Room to newRoom
             let newRoom = new Room(roomData.name, roomData.description);
 
             this.rooms[roomData.id] = newRoom;
