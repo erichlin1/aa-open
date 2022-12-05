@@ -1,13 +1,24 @@
+const {Item} = require('./item.js');
 
-// FILL THIS OUT
+class Food extends Item{
+    constructor (name, description) {
+      super(name, description);
+    };
 
-class Food {
-  constructor (name, description) {
-    this.name = name;
-    this.description = description;
-  }
 
 }
+
+
+/* Local Test Cases
+
+let food = new Food("sandwich", "a delicious sandwich");
+let item = new Item("rock", "just a simple rock");
+
+console.log(food instanceof Food);
+console.log(food instanceof Item);
+
+*/
+
 
 module.exports = {
   Food,

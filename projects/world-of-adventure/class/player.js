@@ -1,5 +1,7 @@
 const {Item} = require('./item.js');
 const {Room} = require('./room.js');
+const {Food} = require('./food.js');
+
 
 class Player {
 
@@ -59,8 +61,11 @@ class Player {
     }
 
     eatItem(itemName) {
-        // Fill this in
-
+        const item = this.getItemByName(itemName);
+        if (item instanceof Food) {
+            const foodIndex = this.items.findIndex((el) => el.name == itemName);
+            this.items.splice(foodIndex, 1);
+        };
     }
 
     // retrieves item from player inventory by name property
