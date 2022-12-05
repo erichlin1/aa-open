@@ -1,3 +1,6 @@
+const {Player} = require('./player.js');
+
+
 class Room {
 
     constructor(name, description) {
@@ -44,8 +47,13 @@ class Room {
     }
 
     getItemByName(name) {
-
-        // Fill this in
+        let ans;
+        this.items.forEach((item) => {
+            if (item.name == name) {
+                ans = item;
+            }
+        });
+        return ans;
     }
 
 }

@@ -1,3 +1,6 @@
+const {Item} = require('./item.js');
+const {Room} = require('./room.js');
+
 class Player {
 
     constructor(name, startingRoom) {
@@ -30,16 +33,29 @@ class Player {
             }
         }
     }
-
+    // player takes an item of itemName from room
     takeItem(itemName) {
-
-        // Fill this in
-
+        // current room inventory
+        const roomInventory = this.currentRoom.items;
+        // current item to take
+        const item = roomInventory.find((el) => el.name == itemName);
+        // returns index of itemName
+        const itemNameIndex = roomInventory.findIndex((el) => el.name == itemName);
+        // delete itemName of Item from room inventory
+        roomInventory.splice(itemNameIndex, 1);
+        // add itemName of Item to player inventory
+        this.items.push(item);
     }
 
     dropItem(itemName) {
-
-        // Fill this in
+        // invoke same class instance method
+        const item = this.getItemByName(itemName);
+        // finds item in the items inventory
+        const itemNameIndex = this.items.findIndex((el) => el == item);
+        // deletes item from player inventory
+        this.items.splice(itemNameIndex, 1);
+        // adds item to room inventory
+        this.currentRoom.items.push(item);
     }
 
     eatItem(itemName) {
@@ -47,11 +63,38 @@ class Player {
 
     }
 
+    // retrieves item from player inventory by name property
     getItemByName(name) {
-
-        // Fill this in
+        let ans;
+        this.items.forEach((item) => {
+            if (item.name == name) {
+                ans = item;
+            }
+        });
+        return ans;
     }
 }
+
+/* Local Test Cases
+
+let item = new Item("rock", "just a simple rock");
+let room = new Room("Test Room", "A test room");
+let player = new Player("player", room);
+
+player.items.push(item);
+console.log(player.items.length);
+console.log(room.items.length);
+
+
+
+player.dropItem('rock');
+console.log(player.items.length);
+console.log(room.items.length);
+
+*/
+
+
+
 
 module.exports = {
   Player,
