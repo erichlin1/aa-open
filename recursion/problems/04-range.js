@@ -11,7 +11,36 @@ range(7, 6); // []
 ***********************************************************************/
 
 
-// your code here
+/*
+let ans = [];
+const range = (start, end) => {
+    if (end < start) {
+      return [];
+    }
+    
+    // base case
+    if (start == end) {
+        return ans;
+    } else {
+        // recursive case
+        console.log(start);
+        ans.push(start);
+        start += 1;
+        range(start, end);
+
+    }
+};
+
+*/
+
+
+
+
+/* Local Test Cases  */
+
+console.log(range(1,5));
+
+
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
