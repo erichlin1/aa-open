@@ -14,7 +14,7 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
 
 1. Create a `Character` class which is the parent of `Player` and `Enemy`
    classes
-2. Create an `Enemy` class which performs actions on a cooldown timer
+2. Create an `Enemy` class which performs actions on a cooldo wn timer
 3. Fill in the appropriate code gaps (look at the test specs) until you see
    the goblin scratching its nose every 3 seconds
 4. Implement the ability for the goblin to move to a different room on a

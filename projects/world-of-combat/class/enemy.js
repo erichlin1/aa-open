@@ -1,9 +1,11 @@
 const {Character} = require('./character');
+const {Player} = require('./player');
 
 
 class Enemy extends Character {
-  constructor(name, description, currentRoom) {
-    // Fill this in
+  constructor(name, description, currentRoom, strength, health, cooldown) {
+      // delay is set to default 3000ms in base class
+      super (name, description, currentRoom, strength, health, cooldown);
   }
 
   setPlayer(player) {

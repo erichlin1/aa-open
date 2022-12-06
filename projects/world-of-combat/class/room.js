@@ -1,6 +1,6 @@
 class Room {
 
-  constructor(name, description) {
+  constructor(name, description, exits, items) {
     this.name = name;
     this.description = description;
     this.exits = {};
@@ -65,7 +65,8 @@ class Room {
 
     // Fill this in
 
-}
+  }
+};
 
 module.exports = {
   Room,

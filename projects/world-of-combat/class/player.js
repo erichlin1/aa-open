@@ -1,11 +1,15 @@
 const {Character} = require('./character');
 const {Enemy} = require('./enemy');
 const {Food} = require('./food');
+const {Room} = require('./room');
+const {Item} = require('./item');
+
 
 class Player extends Character {
 
-  constructor(name, startingRoom) {
-    super(name, "main character", startingRoom);
+  constructor(name, currentRoom) {
+    super(name, "main character", currentRoom);
+    this.items = [];
   }
 
   move(direction) {
@@ -90,6 +94,26 @@ class Player extends Character {
   }
 
 }
+
+
+/* Local Test Cases 
+
+let item = new Item("rock", "just a simple rock");
+let room = new Room("Test Room", "A test room");
+let player = new Player("player", room);
+
+
+room.items.push(item);
+
+console.log(room.items.length);
+console.log(player.items.length);
+
+player.takeItem("rock");
+console.log(room.items.length);
+console.log(player.items.length);
+
+*/
+
 
 module.exports = {
   Player,
