@@ -9,6 +9,7 @@ const {World} = require("../class/world.js");
 
 const {Character} = require("../class/character.js");
 const {Enemy} = require("../class/enemy.js");
+const { it } = require('mocha');
 
 describe ('Character', function () {
 
@@ -127,6 +128,23 @@ describe ('Enemy', function () {
 
 });
 
+describe ('Enemy', function () {
+  // character contains preset delay (3000ms)
+  let enemy;
+  let room;
+  // preconditions for each test case
+  beforeEach(function () {
+    northRoom = new Room('north room', 'the room in the northside');
+    enemy = new Enemy('goblin', 'main antagonist', northRoom);
+  });
+
+  it('should scratch 3 times', function () {
+    enemy.scratchNose();
+    expect(enemy.cooldown).to.equal(0);
+  });
+
+
+});
 
 
 describe ('Enemy', function () {
