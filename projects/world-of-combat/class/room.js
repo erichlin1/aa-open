@@ -52,9 +52,13 @@ class Room {
   }
 
   getItemByName(name) {
-
-    // Fill this in
-
+    let ans;
+    this.items.forEach((item) => {
+        if (item.name == name) {
+            ans = item;
+        }
+    });
+    return ans;
   }
 
   getEnemyByName(name) {
