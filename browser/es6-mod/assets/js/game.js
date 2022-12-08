@@ -6,8 +6,13 @@ import mrsPotatoHeadQuotes from './quotes/mrsPotatoHead.js';
 export class Game {
 
   start() {
-
+    
+    // document.getElementById() returns a HTML element object with the identifer (id property) matching the parameter
+    // .addEventListener accepts 2 parameters: event, callback
+    // the 'target' is the HTMLElement (doc.getElement.)
+    // once the user clicks the button, the target receives the event, then the callback function ins invoked
     document.getElementById('hello').addEventListener('click', () => {
+      
       const index = getIndex();
       const messageContainer = document.getElementById('message');
       if (index === 1) {
