@@ -1,7 +1,7 @@
-import { getIndex } from 'index.js';
-import { mrPotatoHeadQuotes } from 'assets/js/quotes/mrPotatoHead.js';
+import { getIndex } from './utilities.js';
+import { mrPotatoHeadQuotes } from './quotes/mrPotatoHead.js';
 // utilized export default since object was not initialized to a variable
-import mrsPotatoHeadQuotes from 'assets/js/quotes/mrsPotatoHead.js';
+import mrsPotatoHeadQuotes from './quotes/mrsPotatoHead.js';
 
 export class Game {
 
