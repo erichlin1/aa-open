@@ -28,17 +28,42 @@ declared, but not initialized resulting in a typeError from accessing a undefine
 */
 
 export function changeAboutMe() {
-    let pCounts = 0;
+    const tagName = 'P';
     let descCounts = aboutMeDesc.values().length;
     /* add each property from aboutMeDesc to aboutMe section, in a separate paragraphs */
     const aboutMeElement = document.getElementById('aboutMe');
-    const aboutMeArrCollection = Array.from(aboutMeElement.children);
+    // collection of HTML elements 
+    // appendChild is not a method of an HTMLcollection since it's not a method of the Node interface
+    // appendChild is a method of Node which is also a method of Element since Element is an instance of Node
+    const aboutMeElements = aboutMeElement;
+    // count of P elements
+    const pCount = childCounts(aboutMeElements, tagName);
+    // adds or subtracts paragraphs 
+    pCounts > descCounts ? : /* add p to the end */
+};
+
+
+const childCounts = ((elements, name) => {
+    const children = elements.children;
     // counts the number of 'P'
-    aboutMeArrCollection.forEach((child) => {
-        if (child.nodeName == 'H1') {
-            pCounts += 1;
+    let pCount = 0;
+    // creates a shallow-copy of an array from children
+    const arrChildren = Array.from(children);
+    // iterate over each element and if the current child name is idential to name parameter then count p by 1
+    arrChildren.forEach((child) => {
+        if (child.nodeName == name) {
+            pCount += 1;
         }
     });
-    // adds or subtracts paragraphs 
-    pCounts > descCounts ? /* delete p starting from the end */ : /* add p to the end */
+    return pCount;
+});
+
+const addElement = (children, tagName) => {
+    const newElement = document.createElement(tagName);
+
+
+};
+
+const subtractElement = (children, tagName) => {
+
 };
