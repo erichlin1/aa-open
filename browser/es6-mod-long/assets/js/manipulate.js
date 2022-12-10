@@ -1,7 +1,5 @@
 import { aboutMeDesc } from './aboutMe.js';
 
-// why is aboutMeCollection not defined?
-
 export function changeTitle() {
     // Change the title of the page to "(Your name)'s Portfolio"
     const myName = 'Eric Lin';
@@ -29,20 +27,16 @@ declared, but not initialized resulting in a typeError from accessing a undefine
 
 export function changeAboutMe() {
     const tagName = 'P';
-    let descCounts = aboutMeDesc.values().length;
     /* add each property from aboutMeDesc to aboutMe section, in a separate paragraphs */
-    const aboutMeElement = document.getElementById('aboutMe');
+    const aboutMeElements = document.getElementById('aboutMe');
     // collection of HTML elements 
     // appendChild is not a method of an HTMLcollection since it's not a method of the Node interface
     // appendChild is a method of Node which is also a method of Element since Element is an instance of Node
-    const aboutMeElements = aboutMeElement;
     // count of P elements
     const pCount = childCounts(aboutMeElements, tagName);
-    // adds or subtracts paragraphs 
-    pCounts > descCounts ? : /* add p to the end */
 };
 
-
+// counts the number of children of a specified node
 const childCounts = ((elements, name) => {
     const children = elements.children;
     // counts the number of 'P'
@@ -58,12 +52,28 @@ const childCounts = ((elements, name) => {
     return pCount;
 });
 
-const addElement = (children, tagName) => {
+// adds a specific tag element to the specified Id 
+const addElement = (elements, tagName) => {
+    // creates new element;
     const newElement = document.createElement(tagName);
-
-
+    // append new element to parent element
+    elements.appendChild(newElement);
 };
 
-const subtractElement = (children, tagName) => {
+// Subtracts a node from specified Id starting from the end
+const subtractElement = (elements, tagName) => {
+    // nodeList of the elements
+    const nodes = elements.childNodes; 
+    // creates shallow copy from nodes
+    const nodesArr = Array.from(nodes);
+    // returns last index of a p element
+    const indexOfLastPNode = nodesArr.findLastIndex((node) => node.nodeName == tagName);
+    // returns last node by index
+    const lastNode = nodes.item(indexOfLastPNode);
+    // removes last p element through accessing the parent element
+    elements.removeChild(lastNode);
+};
+
+const changeElementText = () => {
 
 };
