@@ -1,0 +1,22 @@
+{
+  "name": "es6-mod-long",
+  "version": "1.0.0",
+  "description": "practice project",
+  "main": "app.js",
+  "type":"module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}
+
+
+

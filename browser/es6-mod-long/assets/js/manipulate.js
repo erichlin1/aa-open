@@ -33,11 +33,16 @@ export function changeAboutMe() {
     // appendChild is not a method of an HTMLcollection since it's not a method of the Node interface
     // appendChild is a method of Node which is also a method of Element since Element is an instance of Node
     // count of P elements
-    const pCount = childCounts(aboutMeElements, tagName);
+    const pCounts = childCounts(aboutMeElements, tagName);
+    const descriptions = Object.values(aboutMeDesc);
+    const descCounts = descriptions.length;
+    changingCountofPNodes(aboutMeElements, tagName, pCounts, descCounts);
+    changeElementText(aboutMeElements, tagName, descriptions);
+
 };
 
 // counts the number of children of a specified node
-const childCounts = ((elements, name) => {
+export const childCounts = ((elements, name) => {
     const children = elements.children;
     // counts the number of 'P'
     let pCount = 0;
@@ -53,7 +58,7 @@ const childCounts = ((elements, name) => {
 });
 
 // adds a specific tag element to the specified Id 
-const addElement = (elements, tagName) => {
+export const addElement = (elements, tagName) => {
     // creates new element;
     const newElement = document.createElement(tagName);
     // append new element to parent element
@@ -61,7 +66,7 @@ const addElement = (elements, tagName) => {
 };
 
 // Subtracts a node from specified Id starting from the end
-const subtractElement = (elements, tagName) => {
+export const subtractElement = (elements, tagName) => {
     // nodeList of the elements
     const nodes = elements.childNodes; 
     // creates shallow copy from nodes
@@ -74,6 +79,30 @@ const subtractElement = (elements, tagName) => {
     elements.removeChild(lastNode);
 };
 
-const changeElementText = () => {
+export const changeElementText = (elements, tagName, descriptions) => {
+    /* changes the innerText for each element */
+    // returns a non-live array from array-like objects
+    const children = Array.from(elements.getElementsByTagName(tagName));
+    descriptions.forEach((description, index) => children[index].innerText = description);
+};
 
+export const changingCountofPNodes = (elements, tagName, pCounts, descCounts) => {
+    let pToDelete;
+    let pToAdd;
+    // assigns pToDelete or pToAdd
+    pCounts > descCounts ? pToDelete = pCounts - descCounts : pToAdd = descCounts - pCounts;
+    // adds p elements or deletes p elements
+    if (pToAdd) {
+        let index = 0;
+        while (index < pToAdd) {
+            addElement(elements, tagName);
+            index += 1;
+        }
+    } else {
+        let index = 0;
+        while (index < pToDelete) {
+            subtractElement(elements, tagName);
+            index += 1;
+        }
+    };
 };
