@@ -1,4 +1,4 @@
-import { aboutMeDesc } from './aboutMe.js';
+import { aboutMeDesc } from './about.js';
 
 export function changeTitle() {
     // Change the title of the page to "(Your name)'s Portfolio"
