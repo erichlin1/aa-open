@@ -1,0 +1,23 @@
+{
+  "name": "solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test-with-json": "mocha --reporter json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai-spies": "^1.0.0",
+    "mocha": "^6.2.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
+}
