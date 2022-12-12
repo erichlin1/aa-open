@@ -1,12 +1,8 @@
 import { aboutMeDesc } from './about.js';
 
 export function changeTitle() {
-    // Change the title of the page to "(Your name)'s Portfolio"
     const myName = 'Eric Lin';
-    // there exist only one tag called 'title'
-    const collection = document.getElementsByTagName('title');
-    // accessed the first element in the array and changed the property innerText to a string
-    collection[0].innerText = `${myName}'s Portfolio`;
+    document.title = `${myName}'s Portfolio`;
 }
 
 export function changeHeader() {
