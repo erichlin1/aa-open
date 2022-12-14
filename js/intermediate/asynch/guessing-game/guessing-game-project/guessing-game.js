@@ -77,3 +77,11 @@ const askRange = () => {
 }
 askRange();
 
+
+/** NOTES 
+1. variables will not be enclosed for an intended function if it is defined in global scope.
+2. readline.createInterface() creates a readline.interface class object which has a method question
+3. question prompts user in the terminal - writable stream
+4. readline.createInferface().question() is a asynch function
+
+*/
