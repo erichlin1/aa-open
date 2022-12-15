@@ -49,7 +49,7 @@ function randomNumber(min, max) {
     const minNumber = Number(min);
     const maxNumber = Number(max);
     const random = randomInRange(minNumber, maxNumber);
-    rl.question('specify the number of attempts: ', (attempts) => askGuess(random, attempts));
+    rl.question('Specify the number of attempts: ', (attempts) => askGuess(random, attempts));
     
 };
 
