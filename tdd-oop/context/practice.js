@@ -81,3 +81,73 @@ function hello() {
     console.log(this);
 }
 hello();
+
+
+// What's the value of this inside of a constructor vs an instance method?
+
+class House{
+    constructor(sqrt, rooms, bathrooms) {
+        this.sqrt = sqrt;
+        this.rooms = rooms;
+        this.bathrooms = bathrooms;
+        return this; // context of `this` in this scenario is the instance of house
+    };
+
+    printDesc () {
+        const desc = `this house is ${this.sqrt} square feet with ${this.rooms} bedrooms and ${this.bathrooms} bathrooms`;
+        console.log(desc);
+        return this; // context of `this` is the instance of house class 
+    };
+
+    static printProps (instance) {
+        console.log(`sqrt: ${instance.sqrt}`);
+        return this; // context of static method is the House class
+    };
+}
+
+// instance of house
+// context of the constructor function
+// const wellingtonMansion = new House(10000, 5, 5);
+// console.log(wellingtonMansion); 
+
+// context of the instance method
+// console.log(wellingtonMansion.printDesc());
+
+const lin = new House(20000, 10, 10);
+//console.log(lin);
+
+// context of the instance method 
+//console.log(lin.printDesc());
+
+// invoking method of class House
+//console.log(House.printProps(lin));
+
+/** without the use of strict mode, a error will be thrown - global will assigning the property `firstName` with `Eric` 
+function bye() {
+    this.firstName = 'Eric'; // creates a class named the function and init. a property with value 'Eric';
+    console.log(`bye ${this.firstName}`);
+    return this;
+};
+
+// console.log(bye()); // typeError  (using strict mode), this is undefined;
+
+const aBye = new bye();
+console.log(aBye);
+*/
+
+function Func1 () {
+    // creates a class named Func1
+    this.Func2 = (() => {
+        // creates a class named Func2
+        console.log(`Func2`);
+        this.Func3 = () => {
+            console.log(`Func3`);
+        };
+    })();
+    console.log(this.Func2);
+    console.log(this.Func3);
+    
+};
+
+const myFunc = new Func1();
+console.log(myFunc);
