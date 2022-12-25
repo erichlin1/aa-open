@@ -149,5 +149,4 @@ function Func1 () {
     
 };
 
-const myFunc = new Func1();
-console.log(myFunc);
+
