@@ -1,5 +1,5 @@
 // prohibits acessing the global object
-"use strict"
+//"use strict"
 // class
 class Student {
     constructor (name, age, major, GPA) {
@@ -80,7 +80,7 @@ function func1 () {
 function hello() {
     console.log(this);
 }
-hello();
+
 
 
 // What's the value of this inside of a constructor vs an instance method?
@@ -135,18 +135,21 @@ const aBye = new bye();
 console.log(aBye);
 */
 
-function Func1 () {
-    // creates a class named Func1
-    this.Func2 = (() => {
-        // creates a class named Func2
-        console.log(`Func2`);
-        this.Func3 = () => {
-            console.log(`Func3`);
-        };
-    })();
-    console.log(this.Func2);
-    console.log(this.Func3);
-    
-};
+const mos = {
+    x: 42,
+    getX: function() {
+      return this.x;
+    }
+  };
+  
+  const unboundGetX = mos.getX;
+console.log(unboundGetX()); // The function gets invoked at the global scope
+  // expected output: undefined
+  
+  
+  //const boundGetX = unboundGetX.bind(mos);
+  // console.log(boundGetX());
+  // expected output: 42
+  
 
-
+  /** common mistake for new JS */
