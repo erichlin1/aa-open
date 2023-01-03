@@ -5,10 +5,12 @@ export class Employee {
     };
     
     sayName () {
-        `${this.name} says hello`;
+        const ans = `${this.name} says hello`;
+        console.log(ans)
+        return ans;
     };
     sayOccupation () {
-        `${this.name} is a ${this.occupation}`;
+        return `${this.name} is a ${this.occupation}`;
     };
 
 }
