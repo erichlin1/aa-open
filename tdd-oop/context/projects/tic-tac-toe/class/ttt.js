@@ -1,7 +1,7 @@
 const Screen = require("./screen");
 const Cursor = require("./cursor");
 
-class TTT {
+export class TTT {
 
   constructor() {
 
@@ -51,4 +51,4 @@ class TTT {
 
 }
 
-module.exports = TTT;
+

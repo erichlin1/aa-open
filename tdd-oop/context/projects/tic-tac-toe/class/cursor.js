@@ -1,6 +1,6 @@
 const Screen = require("./screen");
 
-class Cursor {
+export class Cursor {
 
   constructor(numRows, numCols) {
     this.numRows = numRows;
@@ -40,5 +40,3 @@ class Cursor {
 
 }
 
-
-module.exports = Cursor;
